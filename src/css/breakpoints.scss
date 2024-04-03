@@ -1,0 +1,23 @@
+@import 'quasar/src/css/variables.sass';
+
+$display-breakpoints: (
+  'print-only': 'only print',
+  'screen-only': 'only screen',
+  'xs': '(max-width: #{$breakpoint-xs-max})',
+  'sm': '(min-width: #{$breakpoint-sm-min}) and (max-width: #{$breakpoint-sm-max})',
+  'md': '(min-width: #{$breakpoint-md-min}) and (max-width: #{$breakpoint-md-max})',
+  'lg': '(min-width: #{$breakpoint-lg-min}) and (max-width: #{$breakpoint-lg-max})',
+  'xl': '(min-width: #{$breakpoint-xl-min})',
+  'sm-and-up': '(min-width: #{$breakpoint-sm-min})',
+  'md-and-up': '(min-width: #{$breakpoint-md-min})',
+  'lg-and-up': '(min-width: #{$breakpoint-lg-min})',
+  'sm-and-down': '(max-width: #{$breakpoint-sm-max})',
+  'md-and-down': '(max-width: #{$breakpoint-md-max})',
+  'lg-and-down': '(max-width: #{$breakpoint-lg-max})',
+);
+
+@mixin breakpoint($breakpoint) {
+  @media #{map-get($display-breakpoints, $breakpoint)} {
+    @content;
+  }
+}
